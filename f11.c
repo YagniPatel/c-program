@@ -1,8 +1,29 @@
 #include<stdio.h>
 #include<conio.h>
+int a[30]; // to store marks
 void main()
 {
-	int a[30],b[11]={0},i,j,p,q;
+	scanMarks();
+//	scanFile();
+	analysMarks();
+}
+
+void scanFile(){
+	int i,x;
+	FILE *f;
+	//printf("Enter a marks : ");
+	
+	f=fopen("input.txt","r");
+	//printf("szvsvzzvvacac");
+	for(i=0;i<30 && EOF!=fscanf(f,"%d\n",&x);i++){
+		a[i]=x/10;
+		//printf("sacac");
+	}
+		
+}
+
+void scanMarks(){
+	int i;
 	printf("Enter a marks : ");
 	
 	for(i=0; i<30; i++)
@@ -10,9 +31,14 @@ void main()
 		scanf("%d", &a[i]);
 		a[i]/=10;
 	}
+}
+
+void analysMarks(){
+	int b[11]={0},i,j,p,q;
+	
 	printf("number\t\t range\t\t count");
 	
-	for(j=0,p=0,q=9; j<11,p<=90,q<=99; j++,p=p+10,q=q+10)
+	for(j=0,p=0,q=9; j<11; j++,p=p+10,q=q+10)
 	{
 		for(i=0; i<30; i++)
 		{
