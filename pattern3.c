@@ -30,7 +30,6 @@ void main()
 		if(i==c+1)
 			printf("A");
 		printf("\n");
-
 		f--;
 	}
 }
